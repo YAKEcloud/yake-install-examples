@@ -137,6 +137,8 @@ and login with the email and password you set in config/identity-values.yaml
 
 You'll now see that there's nothing to do in the dashboard because there's no project your user has access to.
 
+### Projects and Secrets
+
 Let's create a project via the so-called virtual garden, the actual gardener API. Conveniently it's also a kubernetes
 API.
 Fetch the virtual garden kubeconfig from the cluster:
