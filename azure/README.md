@@ -19,7 +19,7 @@ You'll find this document and various .yaml and .yaml.example files in there. Co
 counterparts. You may notice various `# CHANGEME` comments in those files. We'll guide you through which values need to
 be set and how to obtain them.
 
-## prerequisites
+## Prerequisites
 
 ### Creating the cluster
 
@@ -93,7 +93,7 @@ Create configuration secrets
 kubectl apply -f ./config/
 ```
 
-### flux
+### Flux
 
 Yake relies on [flux](https://github.com/fluxcd/flux2/) to perform git-based reconciliation.
 Install flux into the cluster:
