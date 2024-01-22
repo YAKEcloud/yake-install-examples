@@ -96,18 +96,19 @@ kubectl apply -f ./config/
 ### Flux
 
 Yake relies on [flux](https://github.com/fluxcd/flux2/) to perform git-based reconciliation.
-Install flux into the cluster:
+Install flux on the cluster. YAKE comes with a pinned version of flux, so we'll use that one instead of installing via the flux cli.
 
 ```sh
-kubectl apply -f flux-system/gotk-components.yaml
+YAKE_VERSION=v1.86.1-0
+kubectl apply -f https://raw.githubusercontent.com/YAKEcloud/yake/$YAKE_VERSION/flux-system/gotk-components.yaml
 ```
 
-To let flux know where to find yake's files, create a flux `GitRepository` resource pointing to yake's repository on
+To let flux know where to find yake's files, create a flux `GitRepository` resource pointing to yake's repository and version tag on
 GitHub.
-Set the version to install by choosing the corresponding tag. Here it's `v1.86.0-0`.
 
 ```sh
-flux create source git --url="https://github.com/yakecloud/yake.git" --tag=v1.86.0-2 yake
+YAKE_VERSION=v1.86.1-0
+flux create source git --url="https://github.com/yakecloud/yake.git" --tag=$YAKE_VERSION yake
 ```
 
 Let's use the `yake` source in a flux `Kustomization` to make flux apply the kustomize `Kustomization`
