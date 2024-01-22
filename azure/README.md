@@ -1,4 +1,4 @@
-# Yake installation on AKS
+# YAKE installation on AKS
 
 There's a wide variety of managed kubernetes services. Here's a few of the big players you may have come across: Azure
 Kubernetes Service (AKS), Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (Amazon EKS) and others.
@@ -95,7 +95,7 @@ kubectl apply -f ./config/
 
 ### Flux
 
-Yake relies on [flux](https://github.com/fluxcd/flux2/) to perform git-based reconciliation.
+YAKE relies on [flux](https://github.com/fluxcd/flux2/) to perform git-based reconciliation.
 Install flux on the cluster. YAKE comes with a pinned version of flux, so we'll use that one instead of installing via the flux cli.
 
 ```sh
@@ -103,7 +103,7 @@ YAKE_VERSION=v1.86.1-0
 kubectl apply -f https://raw.githubusercontent.com/YAKEcloud/yake/$YAKE_VERSION/flux-system/gotk-components.yaml
 ```
 
-To let flux know where to find yake's files, create a flux `GitRepository` resource pointing to yake's repository and version tag on
+To let flux know where to find YAKE's files, create a flux `GitRepository` resource pointing to YAKE's repository and version tag on
 GitHub.
 
 ```sh
