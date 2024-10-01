@@ -1,0 +1,14 @@
+[
+    {
+        "hostname": "k3s-0",
+        "ip": "FIP0"
+    },
+    {
+        "hostname": "k3s-1",
+        "ip": "FIP1"
+    },
+    {
+        "hostname": "k3s-2",
+        "ip": "FIP2"
+    }
+]

@@ -1,0 +1,42 @@
+---
+apiVersion: core.gardener.cloud/v1beta1
+kind: Project
+metadata:
+  name: garden
+spec:
+  namespace: garden
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: garden-myproject
+  labels:
+    gardener.cloud/role: project
+    project.gardener.cloud/name: myproject
+---
+apiVersion: core.gardener.cloud/v1beta1
+kind: Project
+metadata:
+  name: myproject
+spec:
+  namespace: garden-myproject
+  members:
+    - apiGroup: rbac.authorization.k8s.io
+      kind: User
+      name: operations@example.org # CHANGEME must match email in config/identity-values.yaml
+      role: admin
+      roles:
+        - serviceaccountmanager
+---
+apiVersion: core.gardener.cloud/v1beta1
+kind: SecretBinding
+metadata:
+  name: my-openstack-secret
+  namespace: garden-myproject
+  labels:
+    cloudprofile.garden.sapcloud.io/name: openstack
+provider:
+  type: openstack
+secretRef:
+  name: my-openstack-secret
+  namespace: garden

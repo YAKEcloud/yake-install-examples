@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gardenlet-values
+  namespace: flux-system
+type: Opaque
+stringData:
+  values.yaml: |-
+    config:
+      seedConfig:
+        metadata:
+          name: internal-seed
+        taints:
+          seed.gardener.cloud/protected: true
+        spec:
+          networks:
+            nodes: 10.13.0.0/16
+            pods: 10.42.0.0/16
+            services: 10.43.0.0/16
+            shootDefaults:
+              pods: 100.100.0.0/16
+              services: 100.101.0.0/16
+          provider:
+            region: RegionA
+            type: openstack
+          settings:
+            scheduling:
+              visible: true
+            excessCapacityReservation:
+              enabled: false
+            verticalPodAutoscaler:
+              enabled: true
