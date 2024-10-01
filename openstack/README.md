@@ -1,4 +1,4 @@
-# YAKE installation on Openstack
+# YAKE installation on Openstack with k3s
 
 This document will guide you through setting up YAKE on k3s on OpenSstack.
 
